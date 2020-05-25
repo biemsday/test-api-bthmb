@@ -1,0 +1,18 @@
+body {
+    position: absolute;
+    display: inline;
+    margin: 0 auto;
+}
+
+div {
+    position: relative;
+    display: block;
+    margin: 10px;
+}
+
+p,
+input,
+button {
+    margin: 10px 0 10px 0;
+    display: block;
+}

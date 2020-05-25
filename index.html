@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>test-api-bthmb</title>
 </head>
 
 <body>
-    <button id="get">GET</button>
-    <button id="post">POST</button>
+    <div id="get">
+        <p>Get BTC-ETH info</p>
+        <p class="value"></p>
+        <button id="getButton">GET</button>
+    </div>
+
+    <div id="post">
+        <p>Get your wallet statement</p>
+        <input type="text" id="user-apiKey" placeholder="Enter apiKey here">
+        <input type="text" id="user-secret" placeholder="Enter secret here">
+        <button id="postButton">POST</button>
+    </div>
+
 </body>
 
 <script src="background.js"></script>
