@@ -44,8 +44,10 @@ postButton.addEventListener('click', postFetch);
 
 function postFetch() {
 
-    var api = "2c021c65e7947617f60d193c929b1246";
-    var secret = "9356d6e1541385b75aa6ec59981d1ed4dcb5e9df6aec4c5f921dcd64e0ef55cd";
+    var api = document.getElementById("user-apiKey");
+    api = api.value;
+    var secret = document.getElementById("user-secret");
+    secret = secret.value
 
     //do presignature key string
     var presignature =
