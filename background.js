@@ -1,6 +1,8 @@
 const ENTRIPOINT = "https://global-openapi.bithumb.pro/openapi/v1";
-const CURRENCY = "/spot/ticker"
+const CURRENCY = "/spot/ticker";
 const WALLET = "/spot/assetList";
+const CONTRACT = "/contract/account/info";
+
 
 var timestamp = Date.now();
 var msgNo = Math.round(Math.random() * 1000);
@@ -42,20 +44,25 @@ postButton.addEventListener('click', postFetch);
 
 function postFetch() {
 
-    var api = document.getElementById('user-apiKey');
-    var secret = document.getElementById('user-secret');
+    var api = "2c021c65e7947617f60d193c929b1246";
+    var secret = "9356d6e1541385b75aa6ec59981d1ed4dcb5e9df6aec4c5f921dcd64e0ef55cd";
 
     //do presignature key string
-    var presignature = "apiKey=" + api + "&assetType=wallet" + "&msgNo=" + msgNo + "&timestamp=" + timestamp + "&version=" + version;
+    var presignature =
+        "apiKey=" + api +
+        "&assetType=spot" +
+        "&msgNo=" + msgNo +
+        "&timestamp=" + timestamp +
+        "&version=" + version;
 
     //do signature
-    var hash = CryptoJS.HmacSHA256(presignature, secret.value);
+    var hash = CryptoJS.HmacSHA256(presignature, secret);
     var signature = CryptoJS.enc.Base64.stringify(hash).toLocaleLowerCase();
 
     //do body request
     var signaturedPayload = {
-        apiKey: api.value,
-        assetType: "wallet",
+        apiKey: api,
+        assetType: "spot",
         msgNo: msgNo,
         timestamp: timestamp,
         version: version,
